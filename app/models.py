@@ -19,6 +19,16 @@ class master_users(Base):
     updated_at = Column(DateTime,default=datetime.datetime.utcnow,onupdate=datetime.datetime.utcnow)
     
 
+class master_images(Base):
+    __tablename__ = "master_images"
+    
+    image_id = Column(Integer,primary_key=True,index=True)
+    user_id = Column(Integer,default=None)
+    image_name = Column(String,default=None)
+    created_at = Column(DateTime,default=datetime.datetime.utcnow)
+    updated_at = Column(DateTime,default=datetime.datetime.utcnow,onupdate=datetime.datetime.utcnow)
+    
+
 Base.metadata.create_all(bind=db_config.create_engine)
     
         

@@ -1,4 +1,6 @@
 from pydantic import BaseModel
+from fastapi import FastAPI,HTTPException,Response,Request, Cookie,File,UploadFile,APIRouter,Depends
+
 
 class SignUp(BaseModel):
     useremail:str
@@ -18,3 +20,8 @@ class Payload(BaseModel):
 class Refresh_Payload(BaseModel):
     user_id:int
     refresh_token_version:int
+    
+class Upload_Image(BaseModel):
+    user_id:int
+    image_name:str
+    img_file:UploadFile=File(...)
